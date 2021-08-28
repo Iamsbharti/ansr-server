@@ -25,9 +25,10 @@ app.all("*", function (req, res, next) {
 });
 
 let baseUrl = process.env.BASE_URL;
+
 app.use(baseUrl, router);
 console.log(process.env.DB_CONNECT);
-const port = process.env.PORT;
+let port = process.env.PORT || process.env.API_PORT;
 app.listen(port, () => console.log("ANSR_SERVER Running at :", port));
 
 module.exports = app;
